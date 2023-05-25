@@ -1,8 +1,18 @@
-# Minimal working implementation of server-sent events
+# Server-Sent Events
 
-### Stack
+### Minimal working implementation of server-sent events with REST API GET request
 * Server: Express
 * Client: Axios
 
-Using REST GET
+---
 
+### Running server
+
+```shell
+node server.js
+```
+### Running client
+
+```shell
+node client.js
+```
