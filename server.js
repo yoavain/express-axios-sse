@@ -1,12 +1,16 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const fs = require('fs');
 const { loremIpsum } = require("lorem-ipsum");
 
 async function run() {
     const app = express();
 
-    app.get('/events', async function(req, res) {
-        console.log('Got /events');
+    app.use(bodyParser.json());
+
+    app.post('/events', async function(req, res) {
+        const body = req.body;
+        console.log('Got /events', 'with id', body);
         res.set({
             'Cache-Control': 'no-cache',
             'Content-Type': 'text/event-stream',

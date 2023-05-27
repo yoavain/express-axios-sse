@@ -1,9 +1,13 @@
 const axios = require("axios");
+const { randomUUID } = require("crypto");
 
 const ENDPOINT = "http://localhost:3000/events";
 
-axios.get(ENDPOINT, {
-    headers: { accept: "text/event-stream" },
+axios.post(ENDPOINT, { id: randomUUID() }, {
+    headers: {
+        "Content-Type": "application/json",
+        accept: "text/event-stream"
+    },
     responseType: "stream"
 }).then((response) => {
     console.log("Got 'response' object back");
